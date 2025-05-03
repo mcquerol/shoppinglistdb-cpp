@@ -1,0 +1,31 @@
+#include <iostream>
+#include "ShoppingList.h"
+#include "Food.h"
+
+using namespace std;
+
+// Task 5: Provide implementation of operator += (3 points)
+ShoppingList& ShoppingList::operator +=(Item *item)
+{
+
+}
+
+// Task 6: Provide implementation of print (15 points)
+// Hint: use a set to collect all notes from the various items
+// and print its content at the end.
+void ShoppingList::print(time_t until) const
+{
+
+}
+
+// Task 7: Provide implementation of save (3 points)
+void ShoppingList::save(std::ostream& to) const
+{
+
+}
+
+// Task 8: Provide implementation of load (10 points)
+void ShoppingList::load(std::istream &from)
+{
+
+}
