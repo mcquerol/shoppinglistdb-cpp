@@ -7,7 +7,7 @@ using namespace std;
 // Task 5: Provide implementation of operator += (3 points)
 ShoppingList& ShoppingList::operator +=(Item *item)
 {
-
+	return *this;
 }
 
 // Task 6: Provide implementation of print (15 points)

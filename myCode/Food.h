@@ -16,8 +16,7 @@ public:
 	/**
 	* Creates a new food item with the given properties.
 	*/
-	Food(std::string name, std::string shop, std::time_t until,
-	bool needsCooling);
+	Food(std::string name, std::string shop, std::time_t until, bool needsCooling);
 	bool getNeedsCooling() const;
 	/**
 	* Returns a set containing a string that indicates the requirement
