@@ -9,7 +9,6 @@
 
 Item::Item(std::string name, std::string shop, std::time_t until) : name{name}, shop{shop}, until{until}
 {
-
 }
 
 Item::~Item()
@@ -43,7 +42,7 @@ std::string Item::toString() const
 
 void Item::save(std::ostream &to) const
 {
-
+	to << "Item;" << name << ';' << shop << ';' << until << "\n";
 }
 
 Item* Item::restore(std::string line)
