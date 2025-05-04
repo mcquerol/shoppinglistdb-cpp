@@ -39,7 +39,21 @@ void Food::save(ostream& to) const
 // Task 4: Provide implementation of restore (8 points)
 Food* Food::restore(string line)
 {
-	extern string splitAt(string& remainder, char separator);
-	Food* food;
-	return food;
+
+    std::string name, shop, timeStr, needsCoolingStr;
+    time_t until;
+    bool needsCooling;
+
+    istringstream iss(line);
+
+	getline(iss, name, ';');
+	getline(iss, shop, ';');
+
+	getline(iss, timeStr, ';');
+	until = static_cast<time_t>(std::stol(timeStr));
+	getline(iss, timeStr, ';');
+	needsCooling = static_cast<bool>(needsCoolingStr);
+
+	return new Food(name,shop,until,needsCooling);
+
 }
