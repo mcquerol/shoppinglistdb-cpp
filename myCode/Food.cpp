@@ -33,7 +33,7 @@ string Food::toString() const
 // Task 3: Provide implementation of save (5 points)
 void Food::save(ostream& to) const
 {
-
+	to << "Item;" << Item::getName() << ';' << Item::getShop() << ';' << Item::getUntil() << ';' << (needsCooling ? "true" : "false") << "\n";
 }
 
 // Task 4: Provide implementation of restore (8 points)
