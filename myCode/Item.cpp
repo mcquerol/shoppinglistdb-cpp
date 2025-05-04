@@ -7,6 +7,8 @@
 
 #include "Item.h"
 
+using namespace std;
+
 Item::Item(std::string name, std::string shop, std::time_t until) : name{name}, shop{shop}, until{until}
 {
 }
@@ -37,7 +39,7 @@ std::set<std::string> Item::getNotes() const
 
 std::string Item::toString() const
 {
-	return name << " (" << shop << ")";
+	return name + " (" + shop + ")"; //TODO fix
 }
 
 void Item::save(std::ostream &to) const
