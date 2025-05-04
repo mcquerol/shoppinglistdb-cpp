@@ -27,8 +27,12 @@ set<string> Food::getNotes() const
 // Task 2: Provide toString implementation (4 points)
 string Food::toString() const
 {
-
-}
+	if(needsCooling)
+	{
+		return Item::toString() + " [Keep Cool!]\n";
+	}
+	return Item::toString();
+{
 
 // Task 3: Provide implementation of save (5 points)
 void Food::save(ostream& to) const
