@@ -37,7 +37,7 @@ std::set<std::string> Item::getNotes() const
 
 std::string Item::toString() const
 {
-
+	return name << " (" << shop << ")";
 }
 
 void Item::save(std::ostream &to) const
