@@ -54,11 +54,13 @@ Item* Item::restore(std::string line)
     time_t until;
 
     istringstream iss(line);
+
 	getline(iss, name, ';');
 	getline(iss, shop, ';');
-	getline(iss, timeStr, ';');
 
+	getline(iss, timeStr, ';');
 	until = static_cast<time_t>(std::stol(timeStr));
+
 	return new Item(name,shop,until);
 
 }
