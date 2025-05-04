@@ -67,5 +67,18 @@ Item* Item::restore(std::string line)
 
 std::ostream& operator <<(std::ostream &lhs, const Item &item)
 {
+	auto notesSet = item.getNotes();
 
+	lhs << "Item name: " << item.getName() << endl;
+	lhs << "Shop name: " << item.getShop() << endl;
+	lhs << "Required until: " << item.getUntil() << endl;
+
+	if(!notesSet.empty())
+	{
+		for(size_t note = 0; note < notesSet.size() - 1; note++)
+		{
+			lhs << "[Note " << note << "] " << notesSet[note] << "\n";
+		}
+	}
+	return lhs;
 }
