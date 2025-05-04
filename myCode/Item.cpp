@@ -6,6 +6,7 @@
  */
 
 #include "Item.h"
+#include <sstream>
 
 using namespace std;
 
@@ -49,6 +50,16 @@ void Item::save(std::ostream &to) const
 
 Item* Item::restore(std::string line)
 {
+    std::string name, shop, timeStr;
+    time_t until;
+
+    istringstream iss(line);
+	getline(iss, name, ';');
+	getline(iss, shop, ';');
+	getline(iss, timeStr, ';');
+
+	until = static_cast<time_t>(std::stol(timeStr));
+	return new Item(name,shop,until);
 
 }
 
