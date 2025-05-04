@@ -1,10 +1,10 @@
-#include <string>
+
 #include "Food.h"
 
 using namespace std;
 
 // Task 1: Provide constructor implementation (2 points)
-Food::Food(string name, string shop, time_t until, bool needsCooling) : name{name}, shop{shop}, until{until}, needsCooling{needsCooling}
+Food::Food(string name, string shop, time_t until, bool needsCooling) : Item{name, shop, until}, needsCooling{needsCooling}
 {
 
 }
@@ -40,4 +40,6 @@ void Food::save(ostream& to) const
 Food* Food::restore(string line)
 {
 	extern string splitAt(string& remainder, char separator);
+	Food* food;
+	return food;
 }
