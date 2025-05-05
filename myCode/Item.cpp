@@ -35,7 +35,7 @@ std::time_t Item::getUntil() const
 
 std::set<std::string> Item::getNotes() const
 {
-
+	return set<string>();
 }
 
 std::string Item::toString() const
@@ -68,6 +68,7 @@ Item* Item::restore(std::string line)
 std::ostream& operator <<(std::ostream &lhs, const Item &item)
 {
 	auto notesSet = item.getNotes();
+	int noteNum = 0;
 
 	lhs << "Item name: " << item.getName() << endl;
 	lhs << "Shop name: " << item.getShop() << endl;
@@ -75,9 +76,10 @@ std::ostream& operator <<(std::ostream &lhs, const Item &item)
 
 	if(!notesSet.empty())
 	{
-		for(size_t note = 0; note < notesSet.size() - 1; note++)
+
+		for (const auto& note : notesSet)
 		{
-			lhs << "[Note " << note << "] " << notesSet[note] << "\n";
+		    lhs << "[Note " << noteNum++ << "] " << note << "\n";
 		}
 	}
 	return lhs;
