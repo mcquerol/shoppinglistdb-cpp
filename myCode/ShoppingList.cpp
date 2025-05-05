@@ -48,7 +48,13 @@ void ShoppingList::print(time_t until) const
 // Task 7: Provide implementation of save (3 points)
 void ShoppingList::save(std::ostream& to) const
 {
-
+	for(const auto& item : items)
+	{
+		for(const auto& vec : item.second)
+		{
+			vec->save(to);
+		}
+	}
 }
 
 // Task 8: Provide implementation of load (10 points)
