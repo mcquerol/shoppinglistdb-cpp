@@ -1,6 +1,8 @@
 
 #include "Food.h"
 
+#include <sstream>
+
 using namespace std;
 
 // Task 1: Provide constructor implementation (2 points)
@@ -52,7 +54,7 @@ Food* Food::restore(string line)
 	getline(iss, timeStr, ';');
 	until = static_cast<time_t>(std::stol(timeStr));
 	getline(iss, timeStr, ';');
-	needsCooling = static_cast<bool>(needsCoolingStr);
+	needsCooling = (needsCoolingStr == "true");
 
 	return new Food(name,shop,until,needsCooling);
 
