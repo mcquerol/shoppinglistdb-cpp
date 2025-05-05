@@ -7,6 +7,7 @@ using namespace std;
 // Task 5: Provide implementation of operator += (3 points)
 ShoppingList& ShoppingList::operator +=(Item *item)
 {
+	items[item->getShop()].emplace_back(std::unique_ptr<Item>(item));
 	return *this;
 }
 
