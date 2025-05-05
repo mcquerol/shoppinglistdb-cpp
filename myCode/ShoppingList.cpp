@@ -25,17 +25,22 @@ void ShoppingList::print(time_t until) const
 		cout << item.first << ":" << endl;
 		for(const auto& vec : item.second)
 		{
-			cout << *vec.get() << endl;
-			notesSet = vec.get()->getNotes();
+			if(vec->getUntil() <= until)
+			{
+				cout << *vec << endl;
+				const auto& notes = vec->getNotes();
+				notesSet.insert(notes.begin(), notes.end());
+			}
 		}
 		cout << endl;
 	}
 
 	if(!notesSet.empty())
 	{
+		cout << "Notes:" << endl;
 		for (const auto& note : notesSet)
 		{
-		    cout << "[Note " << noteNum++ << "] " << note << "\n";
+		    cout << "[" << ++noteNum << "] " << note << "\n";
 		}
 	}
 }
