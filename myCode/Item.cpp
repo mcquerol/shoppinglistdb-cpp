@@ -50,6 +50,11 @@ void Item::save(std::ostream &to) const
 
 Item* Item::restore(std::string line)
 {
+	extern string splitAt(string& remainder, char separator);
+	if(splitAt(line, ';') != "Item")
+	{
+		return nullptr;
+	}
     std::string name, shop, timeStr;
     time_t until;
 
@@ -57,7 +62,6 @@ Item* Item::restore(std::string line)
 
 	getline(iss, name, ';');
 	getline(iss, shop, ';');
-
 	getline(iss, timeStr, ';');
 	until = static_cast<time_t>(std::stol(timeStr));
 
