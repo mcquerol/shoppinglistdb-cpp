@@ -60,5 +60,26 @@ void ShoppingList::save(std::ostream& to) const
 // Task 8: Provide implementation of load (10 points)
 void ShoppingList::load(std::istream &from)
 {
+	extern string splitAt(string& remainder, char separator);
 
+	string loadStr;
+	while(getline(from,loadStr))
+	{
+		Item* item = nullptr;
+		string type = splitAt(loadStr, ';');
+		if(type == "Item")
+		{
+			item = Item::restore(loadStr);
+		}
+		else if(type == "Food")
+		{
+			item = Food::restore(loadStr);
+		}
+
+		if(item != nullptr)
+		{
+			*this+= item;
+		}
+		cout << item << endl; //show ouutput
+	}
 }
