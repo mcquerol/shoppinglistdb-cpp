@@ -65,21 +65,16 @@ void ShoppingList::load(std::istream &from)
 	string loadStr;
 	while(getline(from,loadStr))
 	{
-		Item* item = nullptr;
-		string type = splitAt(loadStr, ';');
-		if(type == "Item")
-		{
-			item = Item::restore(loadStr);
-		}
-		else if(type == "Food")
+		Item* item;
+		item = Item::restore(loadStr);
+		if(!item)
 		{
 			item = Food::restore(loadStr);
 		}
 
-		if(item != nullptr)
+		if(item)
 		{
 			*this+= item;
 		}
-		cout << item << endl; //show ouutput
 	}
 }
