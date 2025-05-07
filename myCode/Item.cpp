@@ -51,7 +51,9 @@ void Item::save(std::ostream &to) const
 Item* Item::restore(std::string line)
 {
 	extern string splitAt(string& remainder, char separator);
-	if(splitAt(line, ';') != "Item")
+	string originalLine = line;  // keep the original string
+	string type = splitAt(line, ';');
+	if(type != "Item")
 	{
 		return nullptr;
 	}
