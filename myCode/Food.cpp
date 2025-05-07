@@ -42,7 +42,9 @@ void Food::save(ostream& to) const
 Food* Food::restore(string line)
 {
 	extern string splitAt(string& remainder, char separator);
-	if(splitAt(line, ';') != "Food")
+	string originalLine = line;  // keep the original string
+	string type = splitAt(line, ';');
+	if(type != "Food")
 	{
 		return nullptr;
 	}
